@@ -1,0 +1,261 @@
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: #181818;
+  border-top: 1px solid #282828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 1000;
+}
+
+.player-left {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  min-width: 180px;
+}
+
+.album-art {
+  width: 56px;
+  height: 56px;
+  margin-right: 16px;
+  border-radius: 4px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 16px;
+}
+
+.track-name {
+  color: var(--text-base);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.track-artist {
+  color: var(--text-subdued);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+
+.like-button:hover {
+  color: var(--text-base);
+}
+
+.like-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.player-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  max-width: 722px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.control-button {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+
+.control-button:hover {
+  color: var(--text-base);
+}
+
+.control-button.play {
+  background: var(--text-base);
+  color: var(--background-base);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.control-button.play:hover {
+  transform: scale(1.1);
+  color: var(--background-base);
+}
+
+.control-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.control-button.play .control-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.time {
+  color: var(--text-subdued);
+  font-size: 12px;
+  min-width: 40px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #535353;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--text-base);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.player-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 30%;
+  justify-content: flex-end;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-slider {
+  width: 100px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #535353;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--text-base);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .player {
+    padding: 0 8px;
+  }
+
+  .player-left {
+    width: 25%;
+  }
+
+  .track-info {
+    max-width: 120px;
+  }
+
+  .player-center {
+    width: 50%;
+  }
+
+  .player-right {
+    width: 25%;
+  }
+
+  .volume-slider {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .player {
+    height: auto;
+    padding: 8px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .player-left,
+  .player-center,
+  .player-right {
+    width: 100%;
+  }
+
+  .player-left {
+    justify-content: center;
+  }
+
+  .track-info {
+    max-width: none;
+  }
+
+  .player-right {
+    justify-content: center;
+  }
+
+  .volume-slider {
+    width: 120px;
+  }
+} 

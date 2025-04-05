@@ -5,7 +5,7 @@ import NavTabs from '../components/UI/NavTabs';
 import NewReleases from '../components/Home/NewReleases';
 import FeaturedPlaylists from '../components/Home/Content/FeaturedPlaylists';
 import BrowseGenres from '../components/Home/BrowseGenres';
-import Player from '../components/Home/Player';
+import Player from '../components/Player/Player';
 import ErrorMessage from '../components/UI/ErrorMessage';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
