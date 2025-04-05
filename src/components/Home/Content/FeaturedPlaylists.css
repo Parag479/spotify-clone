@@ -1,33 +1,89 @@
 /* filepath: c:\Users\a\code clone\spotify-clone\src\components\Home\Content\FeaturedPlaylists.css */
 .section {
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 .section-title {
   font-size: 24px;
-  margin-bottom: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-primary);
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px;
 }
 
 .card {
-  background-color: #f9f9f9;
+  background: var(--spotify-gray);
   border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: var(--spotify-dark);
+  transform: translateY(-5px);
 }
 
 .card img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 .card h3 {
-  font-size: 18px;
-  margin: 8px 0;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 10px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .card {
+    padding: 8px;
+  }
 }

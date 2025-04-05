@@ -1,0 +1,93 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://www.scdn.co/i/home/hero-burst.svg') center/cover no-repeat;
+  padding: 2rem;
+}
+
+.login-content {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.spotify-logo {
+  width: 200px;
+  height: auto;
+  color: var(--spotify-green);
+  margin-bottom: 2rem;
+}
+
+.login-title {
+  color: var(--spotify-white);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: var(--spotify-green);
+  color: var(--spotify-black);
+  padding: 1rem 3rem;
+  border-radius: 500px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  .spotify-logo {
+    width: 150px;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-button {
+    padding: 0.875rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .spotify-logo {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .login-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-button {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+} 

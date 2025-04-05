@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { fetchFeaturedPlaylists } from '../../../utils/spotifyApi';
+import { SpotifyContext } from '../../../context/SpotifyContext';
+import Heading from '../../../components/UI/Heading';
 import './FeaturedPlaylists.css';
 
 export default function FeaturedPlaylists() {
   const [playlists, setPlaylists] = useState([]);
   const [error, setError] = useState(null);
+  const { token } = useContext(SpotifyContext);
 
   useEffect(() => {
-    const token = localStorage.getItem('spotify_token');
     if (!token) {
       setError('No token found. Please log in.');
       return;
@@ -16,19 +18,19 @@ export default function FeaturedPlaylists() {
     fetchFeaturedPlaylists(token)
       .then((data) => setPlaylists(data))
       .catch((err) => setError(err.message));
-  }, []);
+  }, [token]);
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   if (playlists.length === 0) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   return (
-    <section className="section">
-      <h2 className="section-title">Featured Playlists</h2>
+    <section id="featured-playlists" className="section">
+      <Heading variant="primary">Featured Playlists</Heading>
       <div className="grid-container">
         {playlists.map((playlist) => (
           <div key={playlist.id} className="card">

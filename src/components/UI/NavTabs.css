@@ -1,0 +1,201 @@
+:root {
+  --nav-height: 72px;
+  --nav-background: rgba(0, 0, 0, 0.95);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --spotify-green: #1DB954;
+  --spotify-green-rgb: 29, 185, 84;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+  --dot-size: 6px;
+  --dot-size-active: 8px;
+  --background-base: #1F1F1F;
+}
+
+body {
+  background-color: var(--background-base);
+  color: #FFFFFF;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-tabs {
+  height: var(--nav-height);
+  padding: 0 32px;
+  background: var(--nav-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: var(--spotify-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+}
+
+.logout-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.04) translateY(-1px);
+  box-shadow: 0 4px 15px rgba(var(--spotify-green-rgb), 0.4);
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  outline: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 24px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-button:focus-visible {
+  box-shadow: 0 0 0 2px var(--spotify-green);
+}
+
+.tab-button:hover {
+  color: #FFFFFF;
+  background-color: var(--hover-bg);
+  transform: scale(1.02) translateY(-1px);
+}
+
+.tab-button.active {
+  color: #FFFFFF;
+  background-color: var(--spotify-green);
+  box-shadow: 0 4px 15px rgba(var(--spotify-green-rgb), 0.4);
+  transform: translateY(-1px);
+}
+
+.tab-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background-color: currentColor;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.tab-button:hover .tab-dot {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.tab-button.active .tab-dot {
+  width: var(--dot-size-active);
+  height: var(--dot-size-active);
+  opacity: 1;
+}
+
+/* Main content spacing */
+main {
+  margin-top: var(--nav-height);
+  padding: 32px 0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+    --dot-size: 5px;
+    --dot-size-active: 7px;
+  }
+
+  .nav-tabs {
+    padding: 0 20px;
+  }
+
+  .tabs-container {
+    gap: 16px;
+  }
+
+  .nav-left {
+    gap: 16px;
+  }
+
+  .tab-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .logout-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 56px;
+    --dot-size: 4px;
+    --dot-size-active: 6px;
+  }
+
+  .nav-tabs {
+    padding: 0 16px;
+  }
+
+  .tabs-container {
+    gap: 12px;
+  }
+
+  .nav-left {
+    gap: 12px;
+  }
+
+  .tab-button {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .logout-button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+} 

@@ -1,0 +1,136 @@
+.section {
+  padding: 0;
+  margin: 24px 0 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-base);
+  letter-spacing: -0.04em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 0;
+}
+
+.genre-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-top: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: var(--background-elevated-base);
+}
+
+/* Different gradient backgrounds for genre cards */
+.genre-card:nth-child(6n + 1) {
+  background: linear-gradient(135deg, #FF4632 0%, #FF9A8B 100%);
+}
+
+.genre-card:nth-child(6n + 2) {
+  background: linear-gradient(135deg, #7B1FA2 0%, #E1BEE7 100%);
+}
+
+.genre-card:nth-child(6n + 3) {
+  background: linear-gradient(135deg, #1DB954 0%, #004D40 100%);
+}
+
+.genre-card:nth-child(6n + 4) {
+  background: linear-gradient(135deg, #FF1493 0%, #C71585 100%);
+}
+
+.genre-card:nth-child(6n + 5) {
+  background: linear-gradient(135deg, #32CD32 0%, #00FF00 100%);
+}
+
+.genre-card:nth-child(6n + 6) {
+  background: linear-gradient(135deg, #1E88E5 0%, #0D47A1 100%);
+}
+
+.genre-card:hover {
+  transform: scale(1.02);
+}
+
+.genre-title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-base);
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.genre-image {
+  position: absolute;
+  bottom: -10%;
+  right: -5%;
+  width: 50%;
+  height: 50%;
+  transform: rotate(25deg);
+  object-fit: cover;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.genre-card:hover .genre-image {
+  transform: rotate(25deg) scale(1.1);
+}
+
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .genre-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin: 20px 0 32px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  .genre-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    margin: 16px 0 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .genre-title {
+    font-size: 18px;
+  }
+}

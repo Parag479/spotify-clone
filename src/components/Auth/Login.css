@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/spotify-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-content {
+  text-align: center;
+  padding: 40px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.login-content p {
+  font-size: 18px;
+  color: #b3b3b3;
+  margin-bottom: 32px;
+}
+
+.login-button {
+  background: #1DB954;
+  color: #000000;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 500px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.login-button:hover {
+  background: #1ed760;
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .login-content {
+    padding: 32px;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .login-content h1 {
+    font-size: 36px;
+  }
+
+  .login-content p {
+    font-size: 16px;
+  }
+
+  .login-button {
+    padding: 14px 40px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-content {
+    padding: 24px;
+  }
+
+  .login-content h1 {
+    font-size: 28px;
+  }
+
+  .login-content p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .login-button {
+    padding: 12px 32px;
+    font-size: 13px;
+  }
+} 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCategories } from '../../utils/spotifyApi';
+import Heading from '../UI/Heading';
 import './BrowseGenres.css';
 
 export default function BrowseGenres() {
@@ -19,16 +20,16 @@ export default function BrowseGenres() {
   }, []);
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   if (categories.length === 0) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   return (
-    <section className="section">
-      <h2 className="section-title">Browse Genres</h2>
+    <section id="browse-genres" className="section">
+      <Heading variant="primary">Browse Genres</Heading>
       <div className="grid-container">
         {categories.map((category) => (
           <div key={category.id} className="card">

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { SpotifyContext } from '../context/SpotifyContext';
 import Header from '../components/Home/Header/Header';
+import NavTabs from '../components/UI/NavTabs';
 import NewReleases from '../components/Home/NewReleases';
 import FeaturedPlaylists from '../components/Home/Content/FeaturedPlaylists';
 import BrowseGenres from '../components/Home/BrowseGenres';
@@ -19,6 +20,7 @@ export default function Home() {
     return (
       <div className="page-container">
         <Header />
+        <NavTabs />
         <LoadingSpinner />
       </div>
     );
@@ -28,6 +30,7 @@ export default function Home() {
     return (
       <div className="page-container">
         <Header />
+        <NavTabs />
         <ErrorMessage message={error} />
       </div>
     );
@@ -36,6 +39,7 @@ export default function Home() {
   return (
     <div className="page-container">
       <Header />
+      <NavTabs />
       <main className="content-grid">
         <NewReleases />
         <FeaturedPlaylists />

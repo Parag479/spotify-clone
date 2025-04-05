@@ -16,17 +16,30 @@ export const fetchNewReleases = async (token) => {
 
 // Fetch featured playlists
 export const fetchFeaturedPlaylists = async (token) => {
-  const response = await fetch('https://api.spotify.com/v1/browse/featured-playlists', {
+  const params = new URLSearchParams({
+    country: 'US',
+    locale: 'en_US',
+    limit: 20,
+    offset: 0,
+    timestamp: new Date().toISOString()
+  });
+
+  const response = await fetch(`https://api.spotify.com/v1/browse/featured-playlists?${params}`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     },
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch featured playlists');
+    const error = await response.json();
+    throw new Error(error.error?.message || 'Failed to fetch featured playlists');
   }
 
   const data = await response.json();
+  if (!data.playlists?.items) {
+    throw new Error('No playlists found in response');
+  }
   return data.playlists.items;
 };
 
