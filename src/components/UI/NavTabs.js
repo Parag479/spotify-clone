@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SpotifyContext } from '../../context/SpotifyContext';
 import './NavTabs.css';
 
 export default function NavTabs() {
   const [activeTab, setActiveTab] = useState('new-releases');
+  const navigate = useNavigate();
+  const { logout } = useContext(SpotifyContext);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -12,8 +16,8 @@ export default function NavTabs() {
   };
 
   const handleLogout = () => {
-    // Add logout functionality here
-    console.log('Logging out...');
+    logout();
+    navigate('/login');
   };
 
   const tabs = [
