@@ -1,0 +1,134 @@
+/* src/styles/components/UI.css */
+
+/* ============ Loading Spinner ============ */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    gap: 1rem;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(29, 185, 84, 0.3);
+    border-radius: 50%;
+    border-top-color: #1DB954;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* ============ Error Message ============ */
+  .error-message {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #282828;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #ff3333;
+  }
+  
+  .error-message h3 {
+    color: #ff3333;
+    margin-bottom: 1rem;
+  }
+  
+  .retry-button {
+    background: #1DB954;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .retry-button:hover {
+    background: #1ed760;
+    transform: scale(1.05);
+  }
+  
+  .small-text {
+    font-size: 0.8rem;
+    color: #b3b3b3;
+    margin-top: 1rem;
+  }
+  
+  /* ============ Content Grid ============ */
+  .content-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .content-grid {
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    
+    .error-message {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  }
+
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(29, 185, 84, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--spotify-green);
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .error-message {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--spotify-gray);
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #ff3333;
+  }
+  
+  .error-message h3 {
+    color: #ff3333;
+    margin-bottom: 1rem;
+  }
+  
+  .retry-button {
+    background: var(--spotify-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+  
+  .retry-button:hover {
+    background: #1ed760;
+    transform: scale(1.05);
+  }

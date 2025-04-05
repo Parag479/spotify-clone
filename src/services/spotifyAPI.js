@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 const API_BASE = 'https://api.spotify.com/v1';
-const TIMEOUT = 5000;
+const TIMEOUT = 10000; // 10 seconds
 
-const apiClient = axios.create({
+const api = axios.create({
   baseURL: API_BASE,
   timeout: TIMEOUT
 });
 
 export const verifyToken = async (token) => {
   try {
-    await apiClient.get('/me', {
+    await api.get('/me', {
       headers: { Authorization: `Bearer ${token}` }
     });
     return true;
@@ -19,27 +19,11 @@ export const verifyToken = async (token) => {
   }
 };
 
-export const getAuthUrl = () => {
-  const params = new URLSearchParams({
-    client_id: process.env.REACT_APP_CLIENT_ID,
-    response_type: 'token',
-    redirect_uri: process.env.REACT_APP_REDIRECT_URI,
-    scope: process.env.REACT_APP_SCOPES,
-    show_dialog: true // Forces login prompt
-  });
-  return `${process.env.REACT_APP_AUTH_ENDPOINT}?${params.toString()}`;
-};
-
-export const extractTokenFromHash = () => {
-  const hash = window.location.hash.substring(1);
-  return new URLSearchParams(hash).get('access_token');
-};
-
 const fetchWithToken = async (endpoint, token, params = {}) => {
   try {
-    const response = await apiClient.get(endpoint, {
+    const response = await api.get(endpoint, {
       headers: { Authorization: `Bearer ${token}` },
-      params: { ...params, country: 'IN', limit: 10 }
+      params: { ...params, country: 'US', limit: 10 }
     });
     return response.data?.items || response.data?.albums?.items || response.data?.playlists?.items || [];
   } catch (error) {

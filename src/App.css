@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+.error {
+  color: #ff3333;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+  border: 1px solid #ff3333;
+  border-radius: 5px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+}
+:root {
+  --spotify-green: #1DB954;
+  --spotify-black: #121212;
+  --spotify-dark: #181818;
+  --spotify-gray: #282828;
+  --spotify-light-gray: #535353;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--spotify-black);
+  color: var(--text-primary);
+}
+
+.content-grid {
+  padding: 20px;
+  flex: 1;
+  display: grid;
+  gap: 30px;
+  grid-template-rows: auto auto auto;
+}

@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { getTokenFromUrl, isTokenExpired, saveToken } from './utils/auth';
+import { SpotifyProvider } from './context/SpotifyContext';
+import Home from './pages/Home';
+import Login from './pages/Login';
 
 function App() {
+  useEffect(() => {
+    const hash = getTokenFromUrl();
+    const token = hash.access_token;
+
+    if (token) {
+      saveToken(token);
+      window.location.hash = ''; // Clear the hash from the URL
+    } else if (isTokenExpired()) {
+      window.location.href = '/login'; // Redirect to login
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SpotifyProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </SpotifyProvider>
   );
 }
 
