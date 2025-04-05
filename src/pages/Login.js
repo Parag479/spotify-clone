@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SpotifyContext } from '../context/SpotifyContext';
 import { getAuthUrl } from '../utils/auth';
 import './Login.css';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { token } = useContext(SpotifyContext);
+
+  useEffect(() => {
+    // If user is already logged in, redirect to home
+    if (token) {
+      navigate('/');
+    }
+  }, [token, navigate]);
+
   return (
     <div className="login-container">
       <div className="login-content">

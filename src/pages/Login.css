@@ -29,6 +29,12 @@
   line-height: 1.2;
 }
 
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
 .login-button {
   display: inline-block;
   background-color: var(--spotify-green);
@@ -64,6 +70,11 @@
     margin-bottom: 1.5rem;
   }
 
+  .login-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
   .login-button {
     padding: 0.875rem 2.5rem;
     font-size: 1rem;
@@ -75,6 +86,10 @@
     padding: 1rem;
   }
 
+  .login-content {
+    padding: 1.5rem;
+  }
+
   .spotify-logo {
     width: 120px;
     margin-bottom: 1rem;
@@ -82,6 +97,11 @@
 
   .login-title {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.875rem;
     margin-bottom: 1rem;
   }
 

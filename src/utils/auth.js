@@ -1,23 +1,23 @@
+import { SPOTIFY_CONFIG } from '../config/spotify';
+
 export const getAuthUrl = () => {
-    const authEndpoint = process.env.REACT_APP_AUTH_ENDPOINT;
-    const clientId = process.env.REACT_APP_CLIENT_ID;
-    const redirectUri = process.env.REACT_APP_REDIRECT_URI;
-    const scopes = process.env.REACT_APP_SCOPES;
+  const { AUTH_ENDPOINT, CLIENT_ID, REDIRECT_URI, SCOPES, RESPONSE_TYPE } = SPOTIFY_CONFIG;
   
-    return `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(
-      scopes
-    )}&response_type=token&show_dialog=true`;
-  };
+  const params = new URLSearchParams({
+    client_id: CLIENT_ID,
+    redirect_uri: REDIRECT_URI,
+    scope: SCOPES.join(' '),
+    response_type: RESPONSE_TYPE,
+    show_dialog: true
+  });
+
+  return `${AUTH_ENDPOINT}?${params.toString()}`;
+};
 
 export const getTokenFromUrl = () => {
-  return window.location.hash
-    .substring(1)
-    .split('&')
-    .reduce((initial, item) => {
-      const parts = item.split('=');
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-      return initial;
-    }, {});
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
+  return params.get('access_token');
 };
 
 export const isTokenExpired = () => {
